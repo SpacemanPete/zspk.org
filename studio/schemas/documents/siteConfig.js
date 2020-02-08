@@ -8,24 +8,29 @@ export default {
   __experimental_actions: [/* create, delete, */ 'update', 'publish'],
   fieldsets: [{ name: 'footer', title: 'Footer' }],
   fields: [
-    {
+    { // site title
       name: 'title',
       type: 'string',
       title: 'Site title',
     },
-    {
+    { // site meta description
+      name: 'metaDescription',
+      type: 'string',
+      title: 'Meta Description (for Google Search Results)',
+    },
+    { // canonical URL
       title: 'URL',
       name: 'url',
       type: 'url',
       description: 'The main site url. Used to create canonical url',
     },
-    {
+    { // Frontpage selection
       name: 'frontpage',
       type: 'reference',
       description: 'Choose page to be the frontpage',
       to: { type: 'page' },
     },
-    {
+    { // Site language
       title: 'Site language',
       description:
         'Should be a valid bcp47 language code like en, en-US, no or nb-NO',
@@ -36,7 +41,7 @@ export default {
           bcp47.parse(lang) ? true : 'Please use a valid bcp47 code'
         ),
     },
-    {
+    { // Brand logo
       title: 'Brand logo',
       description:
         'Best choice is to use an SVG where the color are set with currentColor',
@@ -54,7 +59,7 @@ export default {
         },
       ],
     },
-    {
+    { // Main Nav
       title: 'Main navigation',
       name: 'mainNavigation',
       description: 'Select pages for the top menu',
@@ -70,7 +75,7 @@ export default {
         },
       ],
     },
-    {
+    { // Footer Nav
       title: 'Footer navigation items',
       name: 'footerNavigation',
       type: 'array',
@@ -86,10 +91,21 @@ export default {
         },
       ],
     },
-    {
+    { // Footer Text
       name: 'footerText',
       type: 'simplePortableText',
       fieldset: 'footer',
+    },
+    {
+      name: 'googleAnalyticsUACode',
+      type: 'string',
+      title: 'Google Analytics UA Code',
+      validation: Rule =>
+        Rule.custom(UACode => {
+          return (/^ua-\d{4,9}-\d{1,4}$/i).test(UACode.toString())
+          ? true
+          : 'Use format: UA-######-##'
+        })
     },
   ],
 };
