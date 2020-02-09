@@ -16,19 +16,19 @@ class NetlifyForm extends Component {
   }
 
   /* Here’s the engine for posting the form submission */
-  // handleSubmit = e => {
-  //   fetch('/', {
-  //     method: 'POST',
-  //     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-  //     body: encode({ 'form-name': 'contact', ...this.state })
-  //   })
-  //     .then(() => alert('Success!'))
-  //     .catch(error => alert(error))
+  handleSubmit = e => {
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({ 'form-name': 'contact', ...this.state })
+    })
+      .then(() => alert('Success!'))
+      .catch(error => alert(error))
 
-  //   e.preventDefault()
-  // }
+    e.preventDefault()
+  }
 
-  // handleChange = e => this.setState({ [e.target.name]: e.target.value })
+  handleChange = e => this.setState({ [e.target.name]: e.target.value })
 
   render() {
     const {formName, reCaptcha, honeypot} = this.props
@@ -39,7 +39,7 @@ class NetlifyForm extends Component {
         data-netlify='true'
         {...(honeypot ? {'data-netlify-honeypot': 'true'} : {})}
         {...(reCaptcha ? {'data-netlify-recaptcha': 'true'} : {})}
-        // onSubmit={this.handleSubmit}
+        onSubmit={this.handleSubmit}
       >
         <input type='hidden' name={formName} value={slugify(formName)} />
         <p>
