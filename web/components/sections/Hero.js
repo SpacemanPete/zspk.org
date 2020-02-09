@@ -13,17 +13,17 @@ function urlFor (source) {
 function Hero (props) {
   const {heading, backgroundImage, tagline, ctas} = props
 
-  const style = backgroundImage
+  const bgStyle = backgroundImage
     ? {
       backgroundImage: `url("${urlFor(backgroundImage)
-        .width(2000)
+        .width(500)
         .auto('format')
         .url()}")`
     }
     : {}
 
   return (
-    <div className={styles.root} style={style}>
+    <div className={styles.root} style={bgStyle}>
       <div className={styles.content}>
         <h1 className={styles.title}>{heading}</h1>
         <div className={styles.tagline}>{tagline && <SimpleBlockContent blocks={tagline} />}</div>
