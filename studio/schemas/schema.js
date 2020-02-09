@@ -21,8 +21,8 @@ import simplePortableText from './objects/simplePortableText';
 // Landing page sections
 import hero from './objects/hero';
 import imageSection from './objects/imageSection';
-import mailchimp from './objects/mailchimp';
 import textSection from './objects/textSection';
+import netlifyForm from './objects/netlifyForm';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -37,12 +37,12 @@ export default createSchema({
     imageSection,
     internalLink,
     link,
-    mailchimp,
     page,
     portableText,
     route,
     simplePortableText,
     siteConfig,
     textSection,
+    netlifyForm,
   ]),
 });
