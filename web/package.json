@@ -21,6 +21,7 @@
     "next-seo": "^1.11.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-ga": "^2.7.0",
     "react-inlinesvg": "^0.8.4",
     "react-mailchimp-form": "^1.0.1",
     "react-mailchimp-subscribe": "^2.1.0"
