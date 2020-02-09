@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, {Component} from 'react'
 import Layout from '../components/Layout'
 
-class CustomPage extends React.Component {
+class CustomPage extends Component {
   render () {
     const {config} = this.props
     return (
