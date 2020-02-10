@@ -41,7 +41,7 @@ class NetlifyForm extends Component {
         {...(reCaptcha ? {'data-netlify-recaptcha': 'true'} : {})}
         onSubmit={this.handleSubmit}
       >
-        <input type='hidden' name={formName} value={slugify(formName)} />
+        <input type='hidden' name='form-name' value={slugify(formName)} />
         <p>
           <label>
             Imię i Nazwisko: <input type='text' name='name' value={name} onChange={this.handleChange} />
