@@ -17,13 +17,14 @@ class NetlifyForm extends Component {
 
   /* Here’s the engine for posting the form submission */
   handleSubmit = e => {
+    debugger
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({ 'form-name': this.props.formName, ...this.state })
+      body: encode({ 'form-name': e.target.attributes.name.value, ...this.state })
     })
-      .then(() => alert('Success!'))
-      .catch(error => alert(error))
+    .then(() => alert('Success!'))
+    .catch(error => alert(error))
 
     e.preventDefault()
   }
