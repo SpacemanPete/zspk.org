@@ -1,6 +1,9 @@
 import React from 'react'
+import Router from 'next/router'
 import BaseApp, {Container} from 'next/app'
 import client from '../client'
+import * as gtag from '../utils/gtag'
+
 // import 'normalize.css'
 import '../styles/shared.module.css'
 import '../styles/layout.css'
@@ -19,6 +22,8 @@ const siteConfigQuery = `
     }
   }[0]
   `
+
+Router.events.on('routeChangeComplete', url => gtag.pageview(url))
 
 class App extends BaseApp {
   static async getInitialProps ({Component, ctx}) {

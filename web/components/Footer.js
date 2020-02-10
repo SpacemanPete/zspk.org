@@ -9,10 +9,10 @@ function Footer (props) {
   const {navItems, text, router} = props
   return (
     <div className={styles.root}>
-      <nav>
-        <ul className={styles.items}>
-          {navItems &&
-            navItems.map(item => {
+      {navItems.length > 0 &&
+        <nav>
+          <ul className={styles.items}>
+            {navItems.map(item => {
               const isActive =
                 router.pathname === '/LandingPage' && router.query.slug === item.slug.current
               return (
@@ -30,8 +30,9 @@ function Footer (props) {
                 </li>
               )
             })}
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      }
       <div className={styles.text}>
         <SimpleBlockContent blocks={text} />
       </div>
