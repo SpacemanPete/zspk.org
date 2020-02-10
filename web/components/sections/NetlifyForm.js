@@ -35,7 +35,7 @@ class NetlifyForm extends Component {
     const {name, email, message} = this.state
     return (
       <form
-        name={formName}
+        name={slugify(formName)}
         data-netlify='true'
         {...(honeypot ? {'data-netlify-honeypot': 'true'} : {})}
         {...(reCaptcha ? {'data-netlify-recaptcha': 'true'} : {})}
