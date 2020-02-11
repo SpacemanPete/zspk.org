@@ -90,32 +90,46 @@ class Header extends Component {
             </Link>
           </h1>
           <nav className={styles.nav}>
-          <ul className={styles.navItems}>
-            {navItems &&
-              navItems.map(item => {
-                const {slug, title, _id} = item
-                const isActive =
-                  router.pathname === '/LandingPage' && router.query.slug === slug.current
-                return (
-                  <li key={_id} className={styles.navItem}>
-                    <Link
-                      href={{
-                        pathname: '/LandingPage',
-                        query: {slug: slug.current}
-                      }}
-                      as={`/${slug.current}`}
-                      prefetch
-                    >
-                      <a data-is-active={isActive ? 'true' : 'false'}>{title}</a>
-                    </Link>
-                  </li>
-                )
-              })}
-          </ul>
-          <button className={styles.showNavButton} onClick={this.handleMenuToggle}>
-            <HamburgerIcon className={styles.hamburgerIcon} />
-          </button>
-        </nav>
+            <ul className={styles.navItems}>
+              <li className={styles.navItem}>
+                <Link
+                  href={{
+                    pathname: '/LandingPage',
+                    query: {
+                      slug: '/'
+                    }
+                  }}
+                  as='/'
+                  prefetch
+                >
+                  <a>Home</a>
+                </Link>
+              </li>
+              {navItems &&
+                navItems.map(item => {
+                  const {slug, title, _id} = item
+                  const isActive =
+                    router.pathname === '/LandingPage' && router.query.slug === slug.current
+                  return (
+                    <li key={_id} className={styles.navItem}>
+                      <Link
+                        href={{
+                          pathname: '/LandingPage',
+                          query: {slug: slug.current}
+                        }}
+                        as={`/${slug.current}`}
+                        prefetch
+                      >
+                        <a data-is-active={isActive ? 'true' : 'false'}>{title}</a>
+                      </Link>
+                    </li>
+                  )
+                })}
+            </ul>
+            <button className={styles.showNavButton} onClick={this.handleMenuToggle}>
+              <HamburgerIcon className={styles.hamburgerIcon} />
+            </button>
+          </nav>
         </div>
       </div>
     )
