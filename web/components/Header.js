@@ -73,21 +73,23 @@ class Header extends Component {
 
     return (
       <div className={styles.root} data-show-nav={showNav}>
-        <h1 className={styles.branding}>
-          <Link
-            href={{
-              pathname: '/LandingPage',
-              query: {
-                slug: '/'
-              }
-            }}
-            as='/'
-            prefetch
-          >
-            <a title={title}>{this.renderLogo(logo)}</a>
-          </Link>
-        </h1>
-        <nav className={styles.nav}>
+        <div className={styles.container}>
+          <h1 className={styles.branding}>
+            <Link
+              href={{
+                pathname: '/LandingPage',
+                query: {
+                  slug: '/'
+                }
+              }}
+              as='/'
+              prefetch
+            >
+              {/* <a title={title}>{this.renderLogo(logo)}</a> */}
+              <a>{ title }</a>
+            </Link>
+          </h1>
+          <nav className={styles.nav}>
           <ul className={styles.navItems}>
             {navItems &&
               navItems.map(item => {
@@ -114,6 +116,7 @@ class Header extends Component {
             <HamburgerIcon className={styles.hamburgerIcon} />
           </button>
         </nav>
+        </div>
       </div>
     )
   }
