@@ -7,5 +7,8 @@
 @custom-media --media-max-large (max-width: 899px);
 @custom-media --media-min-large (min-width: 900px);
 
+@custom-media --media-max-larger (max-width: 999px);
+@custom-media --media-min-larger (min-width: 1000px);
+
 @custom-media --media-max-x-large (max-width: 1349px);
 @custom-media --media-min-x-large (min-width: 1350px);
