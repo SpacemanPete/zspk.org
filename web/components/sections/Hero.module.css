@@ -4,9 +4,9 @@
 .root {
   composes: center from '../../styles/shared.module.css';
   position: relative;
-  background-color: var(--color-white, #fff);
+  background-color: var(--color-tan, #f0ebdf);
   color: var(--color-black, #000);
-  background-size: cover;
+  background-size: initial;
   background-repeat: no-repeat;
   background-position: center center;
   padding-bottom: 2rem;
@@ -16,7 +16,7 @@
   }
 }
 
-.root::before {
+/* .root::before {
   content: '';
   position: absolute;
   top: 50%;
@@ -25,7 +25,7 @@
   width: 100%;
   height: 50%;
   z-index: 0;
-}
+} */
 
 .content {
   width: 100%;
