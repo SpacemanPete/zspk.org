@@ -5,6 +5,7 @@
   font-size: var(--font-small-size);
   line-height: var(--font-small-line-height);
   padding: 2rem 0;
+  background-color: var(--color-tan, #f0ebdf);
 }
 
 .items {

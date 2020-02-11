@@ -34,6 +34,7 @@ function Footer (props) {
         </nav>
       }
       <div className={styles.text}>
+        &copy;{ new Date().getFullYear() } by Solidarność Polskich Kombatantów.
         <SimpleBlockContent blocks={text} />
       </div>
     </div>
