@@ -24,12 +24,6 @@ export default {
       type: 'url',
       description: 'The main site url. Used to create canonical url',
     },
-    { // Frontpage selection
-      name: 'frontpage',
-      type: 'reference',
-      description: 'Choose page to be the frontpage',
-      to: { type: 'page' },
-    },
     { // Site language
       title: 'Site language',
       description:
@@ -87,8 +81,8 @@ export default {
       validation: Rule =>
         Rule.custom(UACode => {
           return (/^ua-\d{4,9}-\d{1,4}$/i).test(UACode.toString())
-          ? true
-          : 'Use format: UA-######-##'
+            ? true
+            : 'Use format: UA-######-##'
         })
     },
   ],

@@ -1,7 +1,7 @@
 export default {
-  name: 'page',
+  name: 'newsArticle',
   type: 'document',
-  title: 'Page',
+  title: 'News Article',
   fieldsets: [
     {
       title: 'SEO & metadata',
@@ -19,15 +19,9 @@ export default {
       title: 'Title',
     },
     {
-      name: 'content',
-      type: 'array',
-      title: 'Page sections',
-      of: [
-        { type: 'hero' },
-        { type: 'imageSection' },
-        { type: 'textSection' },
-        { type: 'netlifyForm' },
-      ],
+      name: 'text',
+      type: 'portableText',
+      title: 'Text',
     },
     {
       name: 'slug',
@@ -64,7 +58,7 @@ export default {
     prepare({ slug, title }) {
       return {
         title: `${title}`,
-        subtitle: slug !== undefined ? `URL: /${slug}` : '',
+        subtitle: slug !== undefined ? `URL: /wiadomosc/${slug}` : '',
       };
     },
   },

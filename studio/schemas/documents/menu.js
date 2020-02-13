@@ -1,10 +1,10 @@
-import { GiHamburgerMenu } from 'react-icons/lib/md';
+import { MdMenu } from 'react-icons/lib/md';
 
 export default {
   name: 'menu',
   type: 'document',
   title: 'Menu',
-  icon: GiHamburgerMenu,
+  icon: MdMenu,
   fields: [
     {
       type: 'string',

@@ -5,7 +5,9 @@ import createSchema from 'part:@sanity/base/schema-creator';
 import schemaTypes from 'all:part:@sanity/base/schema-type';
 
 // Document types
+import homepage from './documents/homepage';
 import page from './documents/page';
+import newsArticle from './documents/newsArticle';
 import siteConfig from './documents/siteConfig';
 
 // Object types
@@ -23,6 +25,7 @@ import simplePortableText from './objects/simplePortableText';
 import hero from './sections/hero';
 import imageSection from './sections/imageSection';
 import textSection from './sections/textSection';
+import listSection from './sections/listSection';
 import netlifyForm from './sections/netlifyForm';
 
 // Then we give our schema to the builder and provide the result to Sanity
@@ -39,12 +42,15 @@ export default createSchema({
     internalLink,
     customLink,
     link,
+    homepage,
     page,
+    newsArticle,
     portableText,
     menu,
     simplePortableText,
     siteConfig,
     textSection,
+    listSection,
     netlifyForm,
   ]),
 });

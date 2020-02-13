@@ -75,7 +75,7 @@ class Header extends Component {
       <div className={styles.root} data-show-nav={showNav}>
         <div className={styles.container}>
           <h1 className={styles.branding}>
-            <Link
+            {/* <Link
               href={{
                 pathname: '/LandingPage',
                 query: {
@@ -85,26 +85,11 @@ class Header extends Component {
               as='/'
               prefetch
             >
-              {/* <a title={title}>{this.renderLogo(logo)}</a> */}
               <a>{ title }</a>
-            </Link>
+            </Link> */}
           </h1>
           <nav className={styles.nav}>
-            <ul className={styles.navItems}>
-              <li className={styles.navItem}>
-                <Link
-                  href={{
-                    pathname: '/LandingPage',
-                    query: {
-                      slug: '/'
-                    }
-                  }}
-                  as='/'
-                  prefetch
-                >
-                  <a>Home</a>
-                </Link>
-              </li>
+            {/* <ul className={styles.navItems}>
               {navItems &&
                 navItems.map(item => {
                   const {slug, title, _id} = item
@@ -125,7 +110,7 @@ class Header extends Component {
                     </li>
                   )
                 })}
-            </ul>
+            </ul> */}
             <button className={styles.showNavButton} onClick={this.handleMenuToggle}>
               <HamburgerIcon className={styles.hamburgerIcon} />
             </button>

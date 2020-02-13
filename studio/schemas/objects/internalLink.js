@@ -7,7 +7,7 @@ export default {
   name: 'internalLink',
   type: 'reference',
   description: 'Locate a Page you want to link to',
-  to: [{ type: 'page' }],
+  to: [{ type: 'page' }, { type: 'homepage' }],
   blockEditor: {
     icon: () => '🔗',
     render: InternalLinkRender,
