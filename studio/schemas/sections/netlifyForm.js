@@ -21,5 +21,11 @@ export default {
       title: 'Enable honeypot',
       description: 'A hidden honeypot field help deter SPAM form submissions'
     },
+    {
+      name: 'sectionId',
+      type: 'slug',
+      title: 'Section ID',
+      description: 'Add an HTML Section ID (Useful for anchor links)',
+    },
   ]
 }

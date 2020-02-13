@@ -7,6 +7,10 @@ export default {
       title: 'SEO & metadata',
       name: 'metadata',
     },
+    {
+      title: 'Routing',
+      name: 'routing',
+    }
   ],
   fields: [
     {
@@ -24,6 +28,16 @@ export default {
         { type: 'textSection' },
         { type: 'netlifyForm' },
       ],
+    },
+    {
+      name: 'slug',
+      type: 'slug',
+      title: 'Page URL',
+      description: 'URL for the page',
+      fieldset: 'routing',
+      options: {
+        source: 'title'
+      }
     },
     {
       name: 'description',

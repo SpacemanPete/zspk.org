@@ -1,10 +1,10 @@
 import S from '@sanity/desk-tool/structure-builder'
-import { MdDashboard, MdSettings } from 'react-icons/lib/md'
+import { MdDashboard, MdSettings, GiHamburgerMenu } from 'react-icons/lib/md'
 
 // We filter document types defined in structure to prevent
 // them from being listed twice
 const hiddenDocTypes = listItem =>
-  !['page', 'route', 'site-config'].includes(listItem.getId())
+  !['page', 'menu', 'site-config'].includes(listItem.getId())
 
 export default () =>
   S.list()
@@ -25,8 +25,9 @@ export default () =>
         .schemaType('page')
         .child(S.documentTypeList('page').title('Pages')),
       S.listItem()
-        .title('Routes')
-        .schemaType('route')
-        .child(S.documentTypeList('route').title('Routes')),
+        .title('Menus')
+        .icon(GiHamburgerMenu)
+        .schemaType('menu')
+        .child(S.documentTypeList('menu').title('menus')),
       ...S.documentTypeListItems().filter(hiddenDocTypes)
     ])

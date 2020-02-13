@@ -18,6 +18,12 @@ export default {
       type: 'portableText',
       title: 'Text',
     },
+    {
+      name: 'sectionId',
+      type: 'slug',
+      title: 'Section ID',
+      description: 'Add an HTML Section ID (Useful for anchor links)',
+    },
   ],
   preview: {
     select: {

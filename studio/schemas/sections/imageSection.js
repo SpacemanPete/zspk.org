@@ -28,6 +28,12 @@ export default {
       type: 'cta',
       title: 'Call to action',
     },
+    {
+      name: 'sectionId',
+      type: 'slug',
+      title: 'Section ID',
+      description: 'Add an HTML Section ID (Useful for anchor links)',
+    },
   ],
   preview: {
     select: {
