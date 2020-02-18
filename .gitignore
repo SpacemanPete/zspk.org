@@ -7,3 +7,5 @@
 # lerna files
 /lerna-debug.log
 
+# Ignore VSCode editor files
+.vscode

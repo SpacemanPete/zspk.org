@@ -4,10 +4,12 @@ import SimpleBlockContent from '../SimpleBlockContent'
 import styles from './TextSection.module.css'
 
 function TextSection (props) {
-  const {heading, label, text} = props
+  const {heading, label, text, sectionId } = props
+  console.log(sectionId);
+  
 
   return (
-    <div className={styles.root}>
+    <div id={ sectionId.current ? sectionId.current : ''} className={styles.root}>
       <section className={styles.article}>
         <div className={styles.label}>{label}</div>
         <h2 className={styles.heading}>{heading}</h2>

@@ -4,29 +4,23 @@ const client = require('./client')
 const isProduction = process.env.NODE_ENV === 'production'
 const query = `
 {
-  "routes": *[_type == "route"] {
+  "pages": *[_type == "page"] {
     ...,
-    disallowRobot,
-    includeInSitemap,
-    page->{
-      _id,
-      title,
-      _createdAt,
-      _updatedAt
-  }}
+    _id,
+    title,
+    _createdAt,
+    _updatedAt
+  }
 }
 `
-const reduceRoutes = (obj, route) => {
-  const {page = {}, slug = {}} = route
+const reduceRoutes = (obj, page) => {
+  const {slug = {}} = page
   const {_createdAt, _updatedAt} = page
-  const {includeInSitemap, disallowRobot} = route
-  const path = route['slug']['current'] === '/' ? '/' : `/${route['slug']['current']}`
+  const path = page['slug']['current'] === '/' ? '/' : `/${page['slug']['current']}`
   obj[path] = {
     query: {
       slug: slug.current
     },
-    includeInSitemap,
-    disallowRobot,
     _createdAt,
     _updatedAt,
     page: '/LandingPage'
@@ -42,11 +36,11 @@ module.exports = withCSS({
   },
   exportPathMap: function () {
     return client.fetch(query).then(res => {
-      const {routes = []} = res
+      const {pages = []} = res
       const nextRoutes = {
+        '/': {page: '/', query: {slug: '/'}},
         // Routes imported from sanity
-        ...routes.filter(({slug}) => slug.current).reduce(reduceRoutes, {}),
-        '/custom-page': {page: '/CustomPage'}
+        ...pages.filter(({slug}) => slug.current).reduce(reduceRoutes, {}),
       }
       return nextRoutes
     })

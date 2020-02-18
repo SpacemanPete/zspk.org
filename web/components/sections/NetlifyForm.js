@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import PropTypes from 'prop-types'
 import React, {Component} from 'react'
 import slugify from 'react-slugify'
@@ -31,8 +32,8 @@ class NetlifyForm extends Component {
 
   handleChange = e => this.setState({ [e.target.name]: e.target.value })
 
-  render() {
-    const {formName, reCaptcha, honeypot} = this.props
+  render () {
+    const {formName, reCaptcha, honeypot, sectionId} = this.props
     const {name, email, message} = this.state
     return (
       <form
@@ -41,6 +42,7 @@ class NetlifyForm extends Component {
         {...(honeypot ? {'data-netlify-honeypot': 'true'} : {})}
         {...(reCaptcha ? {'data-netlify-recaptcha': 'true'} : {})}
         onSubmit={this.handleSubmit}
+        id={ sectionId.current ? sectionId.current : ''}
       >
         <input type='hidden' name='form-name' value={slugify(formName)} />
         <p>

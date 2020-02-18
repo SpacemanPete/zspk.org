@@ -23,9 +23,11 @@ function Layout (props) {
         <meta name='viewport' content='initial-scale=1.0, width=device-width, viewport-fit=cover' />
       </Head>
       <div className='container'>
-        <Header title={title} navItems={mainNavigation} logo={logo} />
+        <Header title={title} 
+                navItems={mainNavigation} 
+                logo={logo} />
         <div className='content'>{children}</div>
-        <Footer navItems={footerNavigation} text={footerText} />
+        <Footer text={footerText} />
         {logoUrl && url && <LogoJsonLd url={url} logo={logoUrl} />}
       </div>
     </>

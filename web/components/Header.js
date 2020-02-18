@@ -23,7 +23,7 @@ class Header extends Component {
         title: PropTypes.string.isRequired,
         slug: PropTypes.shape({
           current: PropTypes.string
-        }).isRequired
+        })
       })
     ),
     logo: PropTypes.shape({
@@ -69,13 +69,14 @@ class Header extends Component {
 
   render () {
     const {title = 'Missing title', navItems, router, logo} = this.props
+    const { links } = navItems[0]
     const {showNav} = this.state
 
     return (
       <div className={styles.root} data-show-nav={showNav}>
         <div className={styles.container}>
           <h1 className={styles.branding}>
-            {/* <Link
+            <Link
               href={{
                 pathname: '/LandingPage',
                 query: {
@@ -86,31 +87,56 @@ class Header extends Component {
               prefetch
             >
               <a>{ title }</a>
-            </Link> */}
+            </Link>
           </h1>
           <nav className={styles.nav}>
-            {/* <ul className={styles.navItems}>
-              {navItems &&
-                navItems.map(item => {
-                  const {slug, title, _id} = item
-                  const isActive =
-                    router.pathname === '/LandingPage' && router.query.slug === slug.current
+            <ul className={styles.navItems}>
+              {links && links.map(item => {
+              // TODO: links do contain a data array
+              //       Need two new components:
+              //          - customLink.js
+              //          - internalLink.js
+              //
+              //       Need to fix data rendering to handle `customLink` data structure
+              //       and test value to see if it's:
+              //          - absolute link
+              //          - relative link
+              //
+              //       Also add logic for active link
+              // const isActive = router.pathname === '/LandingPage' && router.query.slug === slug.current
+
+                if (item._type == "customLink") {
                   return (
-                    <li key={_id} className={styles.navItem}>
+                    <li key={ item._key}>
                       <Link
                         href={{
-                          pathname: '/LandingPage',
-                          query: {slug: slug.current}
+                          pathname: '/index.js',
                         }}
-                        as={`/${slug.current}`}
-                        prefetch
+                        as={`/#${ item.linkDest }`}
                       >
-                        <a data-is-active={isActive ? 'true' : 'false'}>{title}</a>
+                        <a href={`#${ item.linkDest }`}>{ item.title }</a>
                       </Link>
                     </li>
                   )
-                })}
-            </ul> */}
+                } else if ( item._type == "internalLink" ) {
+                  // const {slug, title, _id} = item
+                  // return (
+                  //   <li key={_id} className={styles.navItem}>
+                  //     <Link
+                  //       href={{
+                  //         pathname: '/LandingPage',
+                  //         query: {slug: slug.current}
+                  //       }}
+                  //       as={`/${slug.current}`}
+                  //       prefetch
+                  //     >
+                  //       <a data-is-active={isActive ? 'true' : 'false'}>{title}</a>
+                  //     </Link>
+                  //   </li>
+                  // )
+                }
+              })}
+            </ul>
             <button className={styles.showNavButton} onClick={this.handleMenuToggle}>
               <HamburgerIcon className={styles.hamburgerIcon} />
             </button>

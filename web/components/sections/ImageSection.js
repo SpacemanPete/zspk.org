@@ -11,7 +11,7 @@ function urlFor (source) {
 }
 
 function ImageSection (props) {
-  const {heading, label, text, image, cta} = props
+  const {heading, label, text, image, cta, sectionId} = props
 
   if (!image) {
     return null
@@ -25,7 +25,7 @@ function ImageSection (props) {
     : {}
 
   return (
-    <div className={styles.root}>
+    <div id={ sectionId.current ? sectionId.current : ''} className={styles.root}>
       <div className={styles.textWrapper}>
         <div className={styles.textContent}>
           <div className={styles.label}>{label}</div>

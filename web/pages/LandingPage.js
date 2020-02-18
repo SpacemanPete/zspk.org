@@ -9,19 +9,17 @@ import RenderSections from '../components/RenderSections'
 
 const builder = imageUrlBuilder(client)
 const pageQuery = groq`
-*[_type == "route" && slug.current == $slug][0]{
-  page-> {
+*[_type == "page" && slug.current == $slug][0]{
+  ...,
+  content[] {
     ...,
-    content[] {
+    cta {
       ...,
-      cta {
-        ...,
-        route->
-      },
-      ctas[] {
-        ...,
-        route->
-      }
+      route->
+    },
+    ctas[] {
+      ...,
+      route->
     }
   }
 }
@@ -46,33 +44,7 @@ class LandingPage extends Component {
       return
     }
     if (slug && slug !== '/') {
-      return client.fetch(pageQuery, {slug}).then(res => ({...res.page, slug}))
-    }
-
-    // Frontpage
-    if (slug && slug === '/') {
-      return client
-        .fetch(
-          groq`
-        *[_id == "global-config"][0]{
-          frontpage -> {
-            ...,
-            content[] {
-              ...,
-              cta {
-                ...,
-                route->
-              },
-              ctas[] {
-                ...,
-                route->
-              }
-            }
-          }
-        }
-      `
-        )
-        .then(res => ({...res.frontpage, slug}))
+      return client.fetch(pageQuery, {slug}).then(page => ({...page, slug}))
     }
 
     return null
