@@ -9,7 +9,7 @@ function TextSection (props) {
   
 
   return (
-    <div id={ sectionId.current ? sectionId.current : ''} className={styles.root}>
+    <div id={ sectionId ? sectionId.current : ''} className={styles.root}>
       <section className={styles.article}>
         <div className={styles.label}>{label}</div>
         <h2 className={styles.heading}>{heading}</h2>

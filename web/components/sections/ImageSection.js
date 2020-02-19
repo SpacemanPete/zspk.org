@@ -25,7 +25,7 @@ function ImageSection (props) {
     : {}
 
   return (
-    <div id={ sectionId.current ? sectionId.current : ''} className={styles.root}>
+    <div id={ sectionId ? sectionId.current : ''} className={styles.root}>
       <div className={styles.textWrapper}>
         <div className={styles.textContent}>
           <div className={styles.label}>{label}</div>

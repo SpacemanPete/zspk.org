@@ -42,7 +42,7 @@ class NetlifyForm extends Component {
         {...(honeypot ? {'data-netlify-honeypot': 'true'} : {})}
         {...(reCaptcha ? {'data-netlify-recaptcha': 'true'} : {})}
         onSubmit={this.handleSubmit}
-        id={ sectionId.current ? sectionId.current : ''}
+        id={ sectionId ? sectionId.current : ''}
       >
         <input type='hidden' name='form-name' value={slugify(formName)} />
         <p>

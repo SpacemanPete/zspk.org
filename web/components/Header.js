@@ -78,7 +78,7 @@ class Header extends Component {
           <h1 className={styles.branding}>
             <Link
               href={{
-                pathname: '/LandingPage',
+                pathname: '/index.js',
                 query: {
                   slug: '/'
                 }
@@ -105,20 +105,24 @@ class Header extends Component {
               //       Also add logic for active link
               // const isActive = router.pathname === '/LandingPage' && router.query.slug === slug.current
 
-                if (item._type == "customLink") {
-                  return (
-                    <li key={ item._key}>
-                      <Link
-                        href={{
-                          pathname: '/index.js',
-                        }}
-                        as={`/#${ item.linkDest }`}
-                      >
-                        <a href={`#${ item.linkDest }`}>{ item.title }</a>
-                      </Link>
-                    </li>
-                  )
-                } else if ( item._type == "internalLink" ) {
+                if (item._type === 'customLink') {
+                  if (router.pathname === item.linkDest) {
+                    return null
+                  } else {
+                    return (
+                      <li key={item._key}>
+                        <Link
+                          href={{
+                            pathname: '/index.js',
+                          }}
+                          as={`/#${item.linkDest}`}
+                        >
+                          <a>{ item.title }</a>
+                        </Link>
+                      </li>
+                    )
+                  }
+                } else if ( item._type === 'internalLink' ) {
                   // const {slug, title, _id} = item
                   // return (
                   //   <li key={_id} className={styles.navItem}>
