@@ -110,7 +110,7 @@ class Header extends Component {
                     return null
                   } else {
                     return (
-                      <li key={item._key}>
+                      <li key={item._key} className={styles.navItem}>
                         <Link
                           href={{
                             pathname: '/index.js',
@@ -123,6 +123,9 @@ class Header extends Component {
                     )
                   }
                 } else if ( item._type === 'internalLink' ) {
+
+                  // TODO: stub out placeholder hee for future internalLink render config
+
                   // const {slug, title, _id} = item
                   // return (
                   //   <li key={_id} className={styles.navItem}>

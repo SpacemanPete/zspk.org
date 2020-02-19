@@ -19,6 +19,8 @@
   display: flex;
   margin: 0 auto;
   max-width: var(--width-large);
+  height: 100%;
+  align-items: center;
 }
 
 .root a {
@@ -123,7 +125,7 @@
   @nest & > a {
     display: block;
     position: relative;
-    padding: 1.5rem 0.5rem;
+    padding: 1.5rem 1.5rem;
 
     @media (--media-max-medium) {
       padding: 1rem 1.5rem;
@@ -140,6 +142,11 @@
         left: 0;
         background-color: var(--color-white, #fff);
       }
+    }
+
+    @nest &:hover, &:focus {
+      color: white;
+      background-color: black;
     }
   }
 
