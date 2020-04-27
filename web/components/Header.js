@@ -116,8 +116,9 @@ class Header extends Component {
                             pathname: '/index.js',
                           }}
                           as={`/#${item.linkDest}`}
+                          
                         >
-                          <a>{ item.title }</a>
+                          <a onClick={this.handleMenuToggle}>{ item.title }</a>
                         </Link>
                       </li>
                     )
