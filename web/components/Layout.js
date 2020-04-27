@@ -28,24 +28,12 @@ function Layout (props) {
         <Header title={title}
                 navItems={mainNavigation}
                 logo={logo} />
-        <div className='content'>{children}</div>
-        {router.pathname === '/' && (
-          <form name="kontakt2" data-netlify="true" data-netlify-honeypot="true" data-netlify-recaptcha="true" id="kontakt2">
-            <input type="hidden" name="form-name" value="kontakt2" />
-            <p>
-              <label>Imię i Nazwisko: <input type="text" name="name" value="" /></label>
-            </p>
-            <p>
-              <label>Adres e-mail: <input type="email" name="email" value="" /></label>
-            </p>
-            <p>
-              <label>Wiadomość: <textarea name="message"></textarea></label>
-              </p>
-            <p>
-              <button type="submit">Wyśli</button>
-            </p>
-          </form>
-        )}
+        <div className='content'>
+          {children}
+          <div id='kontakt'>
+            Kontakt: <a href='mailto:kontakt@zspk.org' className='contact-email'>kontakt@zspk.org</a>
+          </div>
+        </div>
         <Footer text={footerText} />
         {logoUrl && url && <LogoJsonLd url={url} logo={logoUrl} />}
       </div>
