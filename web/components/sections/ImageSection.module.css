@@ -6,6 +6,9 @@
   display: flex;
   flex-flow: row nowrap;
 
+  margin-top: -84px;
+  padding-top: 84px;
+
   @media (--media-max-large) {
     display: block;
   }

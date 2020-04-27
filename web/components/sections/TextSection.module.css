@@ -3,9 +3,15 @@
 
 .root {
   padding: 2rem 0;
+  /* these two lines create offset */
+  padding-top: calc(84px + 2rem); 
+  margin-top: -84px;
 
   @media (--media-min-medium) {
     padding: 4rem 0;
+    /* these two lines create offset */
+    padding-top: calc(84px + 4rem); 
+    margin-top: -84px;
   }
 }
 
