@@ -30,8 +30,8 @@ function Layout (props) {
                 logo={logo} />
         <div className='content'>{children}</div>
         {router.pathname === '/' && (
-          <form name="kontakt" data-netlify="true" data-netlify-honeypot="true" data-netlify-recaptcha="true" id="kontakt">
-            <input type="hidden" name="form-name" value="kontakt" />
+          <form name="kontakt2" data-netlify="true" data-netlify-honeypot="true" data-netlify-recaptcha="true" id="kontakt2">
+            <input type="hidden" name="form-name" value="kontakt2" />
             <p>
               <label>Imię i Nazwisko: <input type="text" name="name" value="" /></label>
             </p>
