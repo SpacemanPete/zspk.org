@@ -31,7 +31,7 @@ function Layout (props) {
         <div className='content'>
           {children}
           <div id='kontakt'>
-            Kontakt: <a href='mailto:kontakt@zspk.org' className='contact-email'>kontakt@zspk.org</a>
+            Kontakt: <a href='mailto:kontakt@zspk.org' className='contact-email' target='_blank'>kontakt@zspk.org</a>
           </div>
         </div>
         <Footer text={footerText} />
