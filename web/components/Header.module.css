@@ -146,16 +146,12 @@
 
     @nest &:hover, &:focus {
       color: white;
-      background-color: black;
+      background-color: var(--color-gray, #697a90);
     }
   }
 
   @nest .root[data-show-nav="true"] & > a[data-is-active="true"]::before {
     display: none;
-  }
-
-  @media (--media-min-medium) {
-    margin-left: 0.5rem;
   }
 }
 
