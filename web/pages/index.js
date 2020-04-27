@@ -6,6 +6,7 @@ import client from '../client'
 import imageUrlBuilder from '@sanity/image-url'
 import Layout from '../components/Layout'
 import RenderSections from '../components/RenderSections'
+import {withRouter} from 'next/router'
 
 const builder = imageUrlBuilder(client)
 
@@ -41,14 +42,15 @@ class IndexPage extends Component {
 
   render () {
     const {
-      title = 'Missing title',
       openGraphImage,
       metaDescription,
       content = [],
       config = {},
-      slug
+      slug,
+      router
     } = this.props
 
+    const title = (router.pathname === '/') ? 'Strona główna' : 'Missing title'
     const openGraphImages = openGraphImage
       ? [
         {
@@ -105,4 +107,4 @@ class IndexPage extends Component {
   }
 }
 
-export default IndexPage
+export default withRouter(IndexPage)
