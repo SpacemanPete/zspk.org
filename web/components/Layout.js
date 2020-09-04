@@ -30,8 +30,10 @@ function Layout (props) {
                 logo={logo} />
         <div className='content'>
           {children}
-          <div id='kontakt'>
-            Kontakt: <a href='mailto:kontakt@zspk.org' className='contact-email' target='_blank'>kontakt@zspk.org</a>
+          <div id="kontakt">
+            <div>Kontakt:</div>
+            <div><a href="mailto:kontakt@zspk.org" class="contact-email" target="_blank">kontakt@zspk.org</a></div>
+            <div><a href="tel:7817105114">781.710.5114</a></div>
           </div>
         </div>
         <Footer text={footerText} />
