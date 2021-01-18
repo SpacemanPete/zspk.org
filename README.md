@@ -1,4 +1,7 @@
-# Next.js landing pages
+# Zwiazku Solidarnosci Polskich Kombatantow (www.zdspk.org)
+
+Based on sanity.io/create project with Sanity backend and Next.js frontend:
+## Next.js landing pages
 
 _SEO friendly page builder in React.js. Heroes, sign-up forms and calls to action._
 
